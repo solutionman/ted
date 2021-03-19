@@ -6,6 +6,7 @@
 class FileOperations {
 public:
     void printToScreen(const std::string &fileName);
+    void writeToFile(const std::string &fileName);
 };
 
 
