@@ -7,7 +7,7 @@ int main(int argc, char **argv) {
         fileName = argv[1];
     }
     Help::getHelp(argc, argv, fileName);
-
+    
 
     return 0;
 }
