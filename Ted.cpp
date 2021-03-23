@@ -9,9 +9,20 @@ int main(int argc, char **argv) {
         fileName = argv[1];
     }
     Help::getHelp(argc, argv, fileName);
-    std::ofstream file(fileName);
+//    std::ofstream file(fileName);
     FileOperations fileOperations;
     fileOperations.printToScreen(fileName);
-    fileOperations.writeToFile(fileName);
+    std::string addToFile;
+    do {
+        std::ofstream out;
+        out.open(fileName, std::ios::app);
+        getline(std::cin, addToFile);
+        if(addToFile != ":q"){
+            out << std::endl << addToFile;
+        }
+        out.close();
+        fileOperations.printToScreen(fileName);
+    } while (addToFile != ":q");
+//    fileOperations.writeToFile(fileName);
     return 0;
 }

@@ -3,7 +3,7 @@
 
 void FileOperations::printToScreen(const std::string &fileName) {
     std::string text;
-    std::ifstream file;
+    std::ifstream file(fileName);
     while(getline(file, text)){
         std::cout << text << std::endl;
     }
