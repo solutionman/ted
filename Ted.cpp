@@ -5,7 +5,7 @@
 
 int main(int argc, char **argv) {
     std::string fileName;
-    if(argc > 1){
+    if (argc > 1) {
         fileName = argv[1];
     }
     Help::getHelp(argc, argv, fileName);
@@ -17,9 +17,9 @@ int main(int argc, char **argv) {
         std::ofstream out;
         out.open(fileName, std::ios::app);
         getline(std::cin, addToFile);
-        if(addToFile == ":d"){
+        if (addToFile == ":d") {
             fileOperations.deleteLine(fileName);
-        } else if(addToFile != ":q"){
+        } else if (addToFile != ":q") {
             out << std::endl << addToFile;
         }
         out.close();

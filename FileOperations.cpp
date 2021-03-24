@@ -6,7 +6,7 @@
 void FileOperations::printToScreen(const std::string &fileName) {
     std::string text;
     std::ifstream file(fileName);
-    while(getline(file, text)){
+    while (getline(file, text)) {
         std::cout << text << std::endl;
     }
     file.close();
@@ -18,7 +18,7 @@ void FileOperations::writeToFile(const std::string &fileName) {
         std::ofstream out;
         out.open(fileName, std::ios::app);
         getline(std::cin, addToFile);
-        if(addToFile != ":q"){
+        if (addToFile != ":q") {
             out << std::endl << addToFile;
         }
     } while (addToFile != ":q");
@@ -32,9 +32,9 @@ void FileOperations::deleteLine(const std::string &fileName) {
     std::ifstream currentFile(fileName);
     std::ofstream tempFile("tempFile.txt");
     bool first = true;
-    while (getline(currentFile, lineInFile)){
-        if(lineInFile != searchLine){
-            if(first){
+    while (getline(currentFile, lineInFile)) {
+        if (lineInFile != searchLine) {
+            if (first) {
                 tempFile << lineInFile;
             } else {
                 tempFile << std::endl << lineInFile;
@@ -46,10 +46,10 @@ void FileOperations::deleteLine(const std::string &fileName) {
     tempFile.close();
     char origName[fileName.length() + 1];
     strcpy(origName, fileName.c_str());
-    if(remove(origName) != 0){
+    if (remove(origName) != 0) {
         std::cout << "error in removing file " << origName << std::endl;
     }
-    if(rename("tempFile.txt", origName) != 0){
+    if (rename("tempFile.txt", origName) != 0) {
         std::cout << "error in deleting in file" << std::endl;
     }
 }
