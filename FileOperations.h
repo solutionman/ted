@@ -10,6 +10,8 @@ public:
     void writeToFile(const std::string &fileName);
 
     void deleteLine(const std::string &fileName);
+
+    void replace(const std::string &fileName);
 };
 
 
