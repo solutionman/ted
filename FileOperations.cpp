@@ -48,26 +48,18 @@ void FileOperations::deleteLine(const std::string &fileName) {
     std::ofstream currentFile2(fileName);
     first = true;
     while (getline(tempFile2, lineInFile)) {
-            if (first) {
-                currentFile2 << lineInFile;
-            } else {
-                currentFile2 << std::endl << lineInFile;
-            }
-            first = false;
+        if (first) {
+            currentFile2 << lineInFile;
+        } else {
+            currentFile2 << std::endl << lineInFile;
+        }
+        first = false;
     }
     tempFile2.close();
     currentFile2.close();
-    if(remove("tempFile.txt") != 0){
+    if (remove("tempFile.txt") != 0) {
         std::cout << "error in removing tempFile.txt" << std::endl;
     }
-//    char origName[fileName.length() + 1];
-//    strcpy(origName, fileName.c_str());
-//    if (remove(origName) != 0) {
-//        std::cout << "error in removing file " << origName << std::endl;
-//    }
-//    if (rename("tempFile.txt", origName) != 0) {
-//        std::cout << "error in deleting in file" << std::endl;
-//    }
 }
 
 void FileOperations::replace(const std::string &fileName) {
@@ -103,7 +95,7 @@ void FileOperations::replace(const std::string &fileName) {
     int length = fileName.length();
     char origName[length + 1];
     strcpy(origName, fileName.c_str());
-    if(remove(origName) != 0){
+    if (remove(origName) != 0) {
         std::cout << "error in removing file " << origName << std::endl;
     }
     if (rename("tempFile.txt", origName) != 0) {
