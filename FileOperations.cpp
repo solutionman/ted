@@ -92,6 +92,27 @@ void FileOperations::replace(const std::string &fileName) {
     }
     currentFile.close();
     temporaryFile.close();
+
+    std::ifstream newFile("tempFile.txt");
+    std::ofstream oldFile(fileName);
+    first = true;
+    std::string copyText;
+    while (getline(newFile, copyText)) {
+        if (first) {
+            oldFile << copyText;
+        }
+        else {
+            oldFile << std::endl << copyText;
+        }
+        first = false;
+    }
+    newFile.close();
+    oldFile.close();
+
+    if (remove("tempFile.txt") != 0) {
+        std::cout << "error in removing tempFile" << std::endl;
+    }
+    /*
     int length = fileName.length();
     char origName[length + 1];
     strcpy(origName, fileName.c_str());
@@ -100,5 +121,6 @@ void FileOperations::replace(const std::string &fileName) {
     }
     if (rename("tempFile.txt", origName) != 0) {
         std::cout << "error in renaming tempFile.txt" << std::endl;
-    }
+    }*/
+
 }
