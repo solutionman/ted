@@ -9,7 +9,6 @@ int main(int argc, char **argv) {
         fileName = argv[1];
     }
     Help::getHelp(argc, argv, fileName);
-//    std::ofstream file(fileName);
     FileOperations fileOperations;
     fileOperations.printToScreen(fileName);
     std::string addToFile;
@@ -27,6 +26,5 @@ int main(int argc, char **argv) {
         out.close();
         fileOperations.printToScreen(fileName);
     } while (addToFile != ":q");
-//    fileOperations.writeToFile(fileName);
     return 0;
 }

@@ -112,15 +112,5 @@ void FileOperations::replace(const std::string &fileName) {
     if (remove("tempFile.txt") != 0) {
         std::cout << "error in removing tempFile" << std::endl;
     }
-    /*
-    int length = fileName.length();
-    char origName[length + 1];
-    strcpy(origName, fileName.c_str());
-    if (remove(origName) != 0) {
-        std::cout << "error in removing file " << origName << std::endl;
-    }
-    if (rename("tempFile.txt", origName) != 0) {
-        std::cout << "error in renaming tempFile.txt" << std::endl;
-    }*/
 
 }
