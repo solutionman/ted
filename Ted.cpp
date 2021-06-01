@@ -16,15 +16,21 @@ int main(int argc, char **argv) {
         std::ofstream out;
         out.open(fileName, std::ios::app);
         getline(std::cin, addToFile);
+        if (addToFile == ":q") {
+            out.close();
+            exit(0);
+        }
         if (addToFile == ":r") {
             fileOperations.replace(fileName);
+            fileOperations.printToScreen(fileName);
         } else if (addToFile == ":d") {
             fileOperations.deleteLine(fileName);
-        } else if (addToFile != ":q") {
+            fileOperations.printToScreen(fileName);
+        } else {
             out << std::endl << addToFile;
         }
         out.close();
-        fileOperations.printToScreen(fileName);
+//        fileOperations.printToScreen(fileName);
     } while (addToFile != ":q");
     return 0;
 }
