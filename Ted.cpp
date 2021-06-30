@@ -22,9 +22,13 @@ int main(int argc, char **argv) {
         }
         if (addToFile == ":r") {
             fileOperations.replace(fileName);
+            // TODO check on windows
+            system("clear");
             fileOperations.printToScreen(fileName);
         } else if (addToFile == ":d") {
             fileOperations.deleteLine(fileName);
+            // TODO check on windows
+            system("clear");
             fileOperations.printToScreen(fileName);
         } else {
             out << std::endl << addToFile;
