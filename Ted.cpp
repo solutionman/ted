@@ -22,15 +22,9 @@ int main(int argc, char **argv) {
         }
         if (addToFile == ":r") {
             fileOperations.replace(fileName);
-            // TODO check if windows then cls
-            system("clear");
-            //system("cls");
             fileOperations.printToScreen(fileName);
         } else if (addToFile == ":d") {
             fileOperations.deleteLine(fileName);
-            // TODO check if windows then cls
-            system("clear");
-            //system("cls");
             fileOperations.printToScreen(fileName);
         } else {
             out << std::endl << addToFile;

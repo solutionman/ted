@@ -4,6 +4,9 @@
 #include <cstring>
 
 void FileOperations::printToScreen(const std::string &fileName) {
+    // TODO check if windows then cls
+    system("clear");
+//    system("cls");
     std::string text;
     std::ifstream file(fileName);
     while (getline(file, text)) {
