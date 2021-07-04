@@ -31,7 +31,6 @@ int main(int argc, char **argv) {
             out << std::endl << addToFile;
         }
         out.close();
-//        fileOperations.printToScreen(fileName);
     } while (addToFile != ":q");
     return 0;
 }
