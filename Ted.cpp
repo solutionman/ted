@@ -17,6 +17,7 @@ int main(int argc, char **argv) {
         out.open(fileName, std::ios::app);
         getline(std::cin, addToFile);
         if (addToFile == ":q") {
+            fileOperations.printToScreen(fileName);
             out.close();
             exit(0);
         }
