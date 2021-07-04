@@ -4,9 +4,11 @@
 #include <cstring>
 
 void FileOperations::printToScreen(const std::string &fileName) {
-    // TODO check if windows then cls
+#ifdef _WIN32 // Includes both 32 bit and 64 bit
+    system("cls");
+#else
     system("clear");
-//    system("cls");
+#endif
     std::string text;
     std::ifstream file(fileName);
     while (getline(file, text)) {
@@ -103,8 +105,7 @@ void FileOperations::replace(const std::string &fileName) {
     while (getline(newFile, copyText)) {
         if (first) {
             oldFile << copyText;
-        }
-        else {
+        } else {
             oldFile << std::endl << copyText;
         }
         first = false;
